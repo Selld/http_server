@@ -30,7 +30,7 @@ void HttpServer::start_server(){
 
     daemon(0, 0);
     int i = 1;
-    while (i != 0) {++i}
+    while (i != 0) {++i;}
     service.run();
 }
 
