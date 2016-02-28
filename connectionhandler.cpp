@@ -20,7 +20,7 @@ void ConnectionHandler::process_connection(std::shared_ptr<ip::tcp::socket> conn
         } );
         worker.detach();
     } catch(boost::system::system_error & e) {
-        std::cout << e.code() << std::endl;
+        //std::cout << e.code() << std::endl;
     }
 }
 
