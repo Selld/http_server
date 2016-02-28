@@ -29,7 +29,7 @@ void HttpServer::start_server(){
     accpt.async_accept(*sock, boost::bind(&HttpServer::handle_connection, this, sock, _1));
 
     daemon(0, 0);
-    while (1) {}
+    sleep(10);
     service.run();
 }
 
