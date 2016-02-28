@@ -32,8 +32,15 @@ std::string HTTP_Response::to_string()
         builder << "\r\n";
         builder << "<b>Hello world!</b>\n";
     } else {
-        builder << "Content-Type: text/html" << "\r\n";
+
+        builder << "HTTP/1.0" << " " << 200 << " " << "OK" << "\r\n";
+        builder << "Content-Length: " << 20 << "\r\n";
+        builder << "Content-Type: " << get_content_string(mime_type) << "\r\n";
         builder << "\r\n";
+        builder << "<b>Hello world!</b>\n";
+
+        // builder << "Content-Type: text/html" << "\r\n";
+        // builder << "\r\n";
     }
     return builder.str();
 }
