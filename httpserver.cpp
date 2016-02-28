@@ -28,9 +28,10 @@ void HttpServer::start_server(){
     std::shared_ptr<ip::tcp::socket> sock(new ip::tcp::socket(service));
     accpt.async_accept(*sock, boost::bind(&HttpServer::handle_connection, this, sock, _1));
 
+
     daemon(0, 0);
-    int i = 1;
-    while (i != 0) {++i;}
+    while(1) {}
+
     service.run();
 }
 
