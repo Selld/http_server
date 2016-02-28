@@ -1,0 +1,10 @@
+#ifndef HTTP_STATUS_CODES_H
+#define HTTP_STATUS_CODES_H
+
+enum HTTP_StatusCode {
+    OK_200 = 200,
+    NOT_FOUND_404 = 404,
+    BAD_REQUEST_400 = 400
+};
+
+#endif // HTTP_STATUS_CODES_H
