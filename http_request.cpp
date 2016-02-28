@@ -84,7 +84,7 @@ std::string HTTP_Request::parse_uri(const std::vector<std::string> &tokens)
 std::string HTTP_Request::parse_version(const std::vector<std::string> &tokens)
 {
     std::string version = tokens[PROTO_POS];
-    if (version != "HTTP/1.0" || version != "HTTP/1.1") {
+    if (version != "HTTP/1.0" && version != "HTTP/1.1") {
         throw BadRequestException("Not supported version");
     }
     return version;
