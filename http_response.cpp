@@ -43,7 +43,6 @@ std::string HTTP_Response::to_string()
     //     // builder << "\r\n";
     // }
 
-    while (1) {}
 
         builder << "HTTP/1.0" << " " << 200 << " " << "OK" << "\r\n";
         builder << "Content-Length: " << 20 << "\r\n";
