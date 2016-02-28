@@ -30,7 +30,7 @@ std::string HTTP_Response::to_string()
         builder << "Content-Length: " << content_length << "\r\n";
         builder << "Content-Type: " << get_content_string(mime_type) << "\r\n";
         builder << "\r\n";
-        builder << content_buff.get();
+        builder << "<b>Hello world!</b>";
     } else {
         builder << "Content-Type: text/html" << "\r\n";
         builder << "\r\n";

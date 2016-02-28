@@ -1,6 +1,6 @@
 #include <cstdlib>
 #include <unistd.h>
-#include <fstream>
+// #include <fstream>
 
 #include "httpserver.h"
 
@@ -25,11 +25,11 @@ void HttpServer::handle_connection(std::shared_ptr<ip::tcp::socket> sock, const 
 void HttpServer::start_server(){
     daemon(0, 0);
 
-    std::fstream test_file("/tmp/index.html", std::ios_base::in);
+    // std::fstream test_file("/tmp/index.html", std::ios_base::in);
 
-    if (!test_file.is_open()) {
-        char c = 2/0;
-    }
+    // if (!test_file.is_open()) {
+    //     char c = 2/0;
+    // }
 
     std::shared_ptr<ip::tcp::socket> sock(new ip::tcp::socket(service));
     accpt.async_accept(*sock, boost::bind(&HttpServer::handle_connection, this, sock, _1));
