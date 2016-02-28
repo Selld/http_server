@@ -24,13 +24,16 @@ std::string HTTP_Response::to_string()
 
     std::string status_string = get_status_string(return_status);
 
-    builder << HTTP_VERSION << " " << return_status << " " << status_string << '\n';
+    builder << HTTP_VERSION << " " << return_status << " " << status_string << "\r\n";
 
     if (content_buff) {
-        builder << "Content-Type: " << get_content_string(mime_type) << '\n';
-        builder << "Content-Length: " << content_length << '\n';
-        builder << '\n';
+        builder << "Content-Length: " << content_length << "\r\n";
+        builder << "Content-Type: " << get_content_string(mime_type) << "\r\n";
+        builder << "\r\n";
         builder << content_buff.get();
+    } else {
+        builder << "Content-Type: text/html" << "\r\n";
+        builder << "\r\n";
     }
     return builder.str();
 }
