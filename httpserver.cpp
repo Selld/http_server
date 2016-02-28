@@ -30,11 +30,16 @@ void HttpServer::start_server(){
 
     // daemon(0, 0);
     // while(1) {}
-    sleep(10);
-    setsid();
+    if (fork()) {
+        sleep(10);
+        setsid();
+    } else {
+        sleep(10);
+        exit(0);
+    }
+    sleep(15);
     service.run();
 
-    sleep(25);
 }
 
 void HttpServer::create_instance(int argc, char* const *argv) {
