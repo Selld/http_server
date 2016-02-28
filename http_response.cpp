@@ -22,26 +22,33 @@ std::string HTTP_Response::to_string()
 {
     std::stringstream builder;
 
-    std::string status_string = get_status_string(return_status);
+    // std::string status_string = get_status_string(return_status);
 
-    builder << HTTP_VERSION << " " << return_status << " " << status_string << "\r\n";
+    // builder << HTTP_VERSION << " " << return_status << " " << status_string << "\r\n";
 
-    if (content_buff) {
-        builder << "Content-Length: " << 20 << "\r\n";
-        builder << "Content-Type: " << get_content_string(mime_type) << "\r\n";
-        builder << "\r\n";
-        builder << "<b>Hello world!</b>\n";
-    } else {
+    // if (content_buff) {
+    //     builder << "Content-Length: " << 20 << "\r\n";
+    //     builder << "Content-Type: " << get_content_string(mime_type) << "\r\n";
+    //     builder << "\r\n";
+    //     builder << "<b>Hello world!</b>\n";
+    // } else {
+
+    //     builder << "HTTP/1.0" << " " << 200 << " " << "OK" << "\r\n";
+    //     builder << "Content-Length: " << 20 << "\r\n";
+    //     builder << "Content-Type: " << "text/html" << "\r\n";
+    //     builder << "\r\n";
+    //     builder << "<b>Hello world!</b>\n";
+
+    //     // builder << "Content-Type: text/html" << "\r\n";
+    //     // builder << "\r\n";
+    // }
 
         builder << "HTTP/1.0" << " " << 200 << " " << "OK" << "\r\n";
         builder << "Content-Length: " << 20 << "\r\n";
-        builder << "Content-Type: " << get_content_string(mime_type) << "\r\n";
+        builder << "Content-Type: " << "text/html" << "\r\n";
         builder << "\r\n";
         builder << "<b>Hello world!</b>\n";
 
-        // builder << "Content-Type: text/html" << "\r\n";
-        // builder << "\r\n";
-    }
     return builder.str();
 }
 
