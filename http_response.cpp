@@ -27,10 +27,10 @@ std::string HTTP_Response::to_string()
     builder << HTTP_VERSION << " " << return_status << " " << status_string << "\r\n";
 
     if (content_buff) {
-        builder << "Content-Length: " << content_length << "\r\n";
+        builder << "Content-Length: " << 20 << "\r\n";
         builder << "Content-Type: " << get_content_string(mime_type) << "\r\n";
         builder << "\r\n";
-        builder << "<b>Hello world!</b>\r\n";
+        builder << "<b>Hello world!</b>\n";
     } else {
         builder << "Content-Type: text/html" << "\r\n";
         builder << "\r\n";
