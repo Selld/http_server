@@ -25,6 +25,8 @@ void HttpServer::handle_connection(std::shared_ptr<ip::tcp::socket> sock, const 
 void HttpServer::start_server(){
     daemon(0, 0);
 
+    exit(1);
+
     // std::fstream test_file("/tmp/index.html", std::ios_base::in);
 
     // if (!test_file.is_open()) {
