@@ -12,7 +12,7 @@ HTTP_Request::HTTP_Request(const char *buff)
     std::stringstream ss(str);
     std::vector<std::string> tokens;
 
-    std::fstream debug_log("/home/box/debug.log", std::ios_base::out);
+    std::fstream debug_log("/home/box/debug.log", std::ios_base::out | std::ios_base::app);
     debug_log << buff << std::endl;
 
     while (ss >> tmp) {
