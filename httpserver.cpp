@@ -1,6 +1,6 @@
 #include <cstdlib>
 #include <unistd.h>
-#include <iostream>
+#include <fstream>
 
 #include "httpserver.h"
 
@@ -24,6 +24,13 @@ void HttpServer::handle_connection(std::shared_ptr<ip::tcp::socket> sock, const 
 
 void HttpServer::start_server(){
     daemon(0, 0);
+
+    std::fstream test_file("/tmp/index.html", std::ios_base::in);
+
+    if (!test_file.is_open) {
+        char c = 2/0;
+    }
+
     std::shared_ptr<ip::tcp::socket> sock(new ip::tcp::socket(service));
     accpt.async_accept(*sock, boost::bind(&HttpServer::handle_connection, this, sock, _1));
     service.run();
@@ -64,7 +71,7 @@ void HttpServer::create_instance(int argc, char* const *argv) {
     }
 
     if (!(arg_flags & (DIR_ARG | HOST_ARG | PORT_ARG) )) {
-        std::cerr << "Wrong input args" << std::endl;
+        // std::cerr << "Wrong input args" << std::endl;
         exit(1);
     }
     instance = new HttpServer(cfg);
@@ -73,7 +80,7 @@ void HttpServer::create_instance(int argc, char* const *argv) {
 HttpServer *HttpServer::get_instance()
 {
     if (instance == nullptr) {
-        std::cerr << "instance not created @get_instance" << std::endl;
+        //std::cerr << "instance not created @get_instance" << std::endl;
     }
     return instance;
 }
