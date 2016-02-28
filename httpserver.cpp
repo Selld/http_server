@@ -4,6 +4,10 @@
 
 #include "httpserver.h"
 
+void sighup_handler(int x) {
+    sleep(10);
+}
+
 using namespace HTTP;
 
 HttpServer* HttpServer::instance = nullptr;
@@ -32,7 +36,8 @@ void HttpServer::start_server(){
     // while(1) {}
     if (!fork()) {
         sleep(10);
-        signal(SIGHUP, SIG_IGN );
+        umask(0);
+        signal(SIGHUP, sighup_handler);
         setsid();
     } else {
         sleep(10);
