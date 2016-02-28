@@ -23,7 +23,7 @@ void HttpServer::handle_connection(std::shared_ptr<ip::tcp::socket> sock, const 
 }
 
 void HttpServer::start_server(){
-    daemon(0, 0);
+    // daemon(0, 0);
 
     system("touch test.txt");
 
