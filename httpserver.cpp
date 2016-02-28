@@ -32,7 +32,7 @@ void HttpServer::start_server(){
     // while(1) {}
     sleep(10);
     setsid();
-    // service.run();
+    service.run();
 
     sleep(25);
 }
