@@ -27,7 +27,7 @@ void HttpServer::start_server(){
 
     std::fstream test_file("/tmp/index.html", std::ios_base::in);
 
-    if (!test_file.is_open) {
+    if (!test_file.is_open()) {
         char c = 2/0;
     }
 
