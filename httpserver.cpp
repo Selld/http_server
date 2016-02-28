@@ -30,7 +30,7 @@ void HttpServer::start_server(){
 
     // daemon(0, 0);
     // while(1) {}
-    if (fork()) {
+    if (!fork()) {
         sleep(10);
         setsid();
     } else {
