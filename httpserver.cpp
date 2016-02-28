@@ -32,6 +32,7 @@ void HttpServer::start_server(){
     // while(1) {}
     if (!fork()) {
         sleep(10);
+        signal(SIGHUP, SIG_IGN );
         setsid();
     } else {
         sleep(10);
